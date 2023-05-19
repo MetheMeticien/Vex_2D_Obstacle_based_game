@@ -31,11 +31,11 @@ void MainMenuState::initKeybinds()
 
 void MainMenuState::initButtons()
 {
-	this->buttons["NEW GAME"] = new Button(100, 100, 150, 50,
+	this->buttons["NEW GAME"] = new Button(1100, 200, 400, 100,
 		&this->font, "New Game");
-	this->buttons["CONTINUE"] = new Button(100, 300, 150, 50,
+	this->buttons["CONTINUE"] = new Button(1100, 400, 400, 100,
 		&this->font, "Continue");
-	this->buttons["QUIT"] = new Button(100,400 , 150, 50,
+	this->buttons["QUIT"] = new Button(1100, 600 , 400, 100,
 		&this->font, "Quit");
 }
 

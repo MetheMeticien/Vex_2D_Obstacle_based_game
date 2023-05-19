@@ -30,9 +30,9 @@ private:
 	Font* font;
 	Text text;
 
-	Color idleColor = Color::White;
-	Color hoverColor = Color :: Cyan;
-	Color clickedColor = Color::Blue;
+	Color idleColor = {0,0,255,0};
+	Color hoverColor = {0,0,255,20};
+	Color clickedColor = {0,0,255,50};
 
 
 public:

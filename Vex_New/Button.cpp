@@ -10,7 +10,7 @@ Button::Button(float x, float y, float width, float height, Font* font, string t
 	this->text.setFont(*this->font);
 	this->text.setString(text);
 	this->text.setFillColor(Color::Cyan);
-	this->text.setCharacterSize(20);
+	this->text.setCharacterSize(60);
 	this->text.setStyle(Text::Bold);
 
 	this->text.setPosition(
