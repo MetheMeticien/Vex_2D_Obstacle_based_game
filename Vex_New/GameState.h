@@ -7,9 +7,11 @@ class GameState :
     public State 
 {
 private:
-    Entity player;
+    Player* player;
 
     void initKeybinds();
+    void initTextures();
+    void initPlayers();
 
 public:
     GameState(RenderWindow* window, map<string, int>* supportedKeys, stack<State*>* states);
@@ -21,6 +23,7 @@ public:
 
 
     void endState();
+    
 
 
 

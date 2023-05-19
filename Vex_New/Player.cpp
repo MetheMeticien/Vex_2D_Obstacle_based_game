@@ -1,0 +1,26 @@
+#include "Player.h"
+
+void Player::initVariables()
+{
+}
+
+void Player::initComponents()
+{
+	
+}
+
+
+
+Player::Player(float x, float y, Texture* texture)
+{
+	this->initVariables();
+	this->initComponents();
+
+	this->createSprite(texture);
+	this->setPosition(x, y);
+}
+
+Player::~Player()
+{
+
+}

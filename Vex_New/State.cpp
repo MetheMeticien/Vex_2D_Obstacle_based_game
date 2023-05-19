@@ -18,13 +18,14 @@ const bool &State::getQuit() const
 	return this->quit;
 }
 
-void State::checkForQuit()
+const bool& State::isMainMenu() const
 {
-	if (Keyboard::isKeyPressed(Keyboard::Key(this->keybinds.at("CLOSE"))))
-	{
-		this->quit = true;
-	}
+	// TODO: insert return statement here
+	return this->mainMenu;
 }
+
+
+
 
 void State::updateMousePositions()
 {

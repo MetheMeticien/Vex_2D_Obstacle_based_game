@@ -22,10 +22,13 @@ using namespace std;
 class Entity
 {
 private:
+	void initVariables();
 
 
 protected:
-	RectangleShape shape;
+	Sprite* sprite;
+	Texture* texture;
+	//RectangleShape shape;
 	float movementSpeed;
 
 
@@ -33,8 +36,10 @@ public:
 	Entity();
 	virtual ~Entity();
 
+	void createSprite(Texture* texture);
 
 	//Functions
+	virtual void setPosition(float x, float y);
 	virtual void move(const float& dt,const float dir_x,const float dir_y);
 
 	virtual void update(const float& dt);

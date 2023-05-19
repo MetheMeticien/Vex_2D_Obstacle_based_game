@@ -10,11 +10,14 @@ class MainMenuState :
 {
 private:
    
+    
+    Texture backgroundTexture;
     RectangleShape shape;
     Font font;
 
     map<string, Button*> buttons;
     
+    void initBackground();
     void initFont();
     void initKeybinds();
     void initButtons();

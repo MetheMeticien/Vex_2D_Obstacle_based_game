@@ -1,5 +1,17 @@
 #include "MainMenuState.h"
 
+void MainMenuState::initBackground()
+{
+	this->shape.setSize(Vector2f(window->getSize()));
+	
+
+	if (!this->backgroundTexture.loadFromFile("images/Background/back.jpg"))
+	{
+		throw "ERROR! Background Texture not Loaded";
+	}
+	this->shape.setTexture(&this->backgroundTexture);
+}
+
 void MainMenuState::initFont()
 {
 	if (!this->font.loadFromFile("SeasideResortNF/SEASRN__.ttf"))
@@ -30,14 +42,16 @@ void MainMenuState::initButtons()
 MainMenuState::MainMenuState(RenderWindow* window, map<string, int>* supportedKeys, stack<State*>* states)
 	:State(window, supportedKeys, states)
 {
+	
+	this->mainMenu = true;
+	this->initBackground();
 	this->initFont();
 	this->initKeybinds();
 	this->initButtons();
 	
 
-
-	shape.setSize(Vector2f (window->getSize()));
-	shape.setFillColor(Color::Red);
+	//shape.setTexture()
+	
 }
 
 MainMenuState::~MainMenuState()
@@ -50,14 +64,13 @@ MainMenuState::~MainMenuState()
 
 void MainMenuState::endState()
 {
-	cout << "ending current state" << endl;
+	this->quit = true;
 }
 
 
 void MainMenuState::updateInput(const float& dt)
 {
 	this->updateMousePositions();
-	this->checkForQuit();
 	
 
 }
@@ -77,7 +90,7 @@ void MainMenuState::updateButtons()
 
 	if (this->buttons["QUIT"]->isPressed())
 	{
-		this->quit = true;
+		this->endState();
 	}
 	
 }

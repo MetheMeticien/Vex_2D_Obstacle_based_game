@@ -1,5 +1,5 @@
 #pragma once
-#include "Entity.h"
+#include "Player.h"
 
 using namespace sf;
 using namespace std;
@@ -11,18 +11,21 @@ private:
 	
 protected:
 
+	
+
 	stack<State*>* states;
 	RenderWindow* window;
 	map<string, int>* supportedKeys;
 	map<string, int> keybinds;
 	bool quit;
+	bool mainMenu;
 
 	Vector2i mousePosScreen;
 	Vector2i mousePosWindow;
 	Vector2f mousePosView;
 
 
-	vector<Texture> textures;
+	map<string, Texture> textures;
 
 	virtual void initKeybinds() = 0;
 
@@ -32,8 +35,10 @@ public:
 	virtual ~State();
 
 	const bool& getQuit() const;
+	const bool& isMainMenu() const;
 
-	virtual void checkForQuit();
+	//virtual void endStateUpdate() = 0;
+	
 	virtual void endState() = 0;
 	virtual void updateMousePositions();
 	virtual void updateInput(const float& dt) = 0;

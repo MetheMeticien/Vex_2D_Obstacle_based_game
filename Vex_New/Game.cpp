@@ -66,7 +66,7 @@ void Game::initKeys()
 	this->supportedKeys["W"] = Keyboard::Key::W;
 	this->supportedKeys["S"] = Keyboard::Key::S;
 
-	cout << this->supportedKeys.at("D") << endl;
+	//cout << this->supportedKeys.at("D") << endl;
 }
 
 void Game::initStates()
@@ -131,10 +131,15 @@ void Game::update()
 		
 		if (this->states.top()->getQuit())
 		{
-			this->states.top()->endState();
+			if (this->states.top()->isMainMenu()) {
+				this->window->close();
+			}
 			
 			delete this->states.top();
 			this->states.pop();
+			
+			
+			//this->window->close();
 		}
 	}
 }
